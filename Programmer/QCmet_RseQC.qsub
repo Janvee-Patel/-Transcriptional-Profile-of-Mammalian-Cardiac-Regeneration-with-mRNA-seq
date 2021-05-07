@@ -1,0 +1,29 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+#$ -j y
+#$ -pe mpi_16_tasks_per_node 16
+
+echo "Running job $JOB_ID"
+echo "Started: $(date +%F)"
+echo "Running in directory: $PWD"
+
+#Load modules
+module unload anaconda3
+module load python3
+module load R
+module load samtools
+module load rseqc
+
+#command to run geneBody coverage
+geneBody_coverage.py -i P0_1_tophat/accepted_hits.bam -r /project/bf528/project_2/reference/annot/mm9.bed -o new_GBC
+
+#command to run inner distance
+inner_distance.py -i P0_1_tophat/accepted_hits.bam -r /project/bf528/project_2/reference/annot/mm9.bed -o new_IND
+
+#command to run bam stat
+bam_stat.py -i P0_1_tophat/accepted_hits.bam
+
+
+echo "Job finished: $(date +%F)"
