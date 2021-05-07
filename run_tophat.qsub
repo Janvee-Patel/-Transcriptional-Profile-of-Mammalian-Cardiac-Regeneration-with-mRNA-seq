@@ -1,0 +1,23 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+#$ -j y
+#$ -pe mpi_16_tasks_per_node 16
+
+echo "Running job $JOB_ID"
+echo "Started: $(date +%F)"
+echo "Running in directory: $PWD"
+
+#Load modules
+module load python2
+module load samtools/0.1.19
+module load bowtie2
+module load boost
+module load tophat
+
+#command to align 2 FASTQ files against the mm9 reference using TopHat
+tophat -r 200 -G /project/bf528/project_2/reference/annot/mm9.gtf --segment-length=20 --segment-mismatches=1 --no-novel-junc -o P0_1_tophat -p 16 /project/bf528/project_2/reference/mm9 /projectnb/bf528/users/frizzled/project_2/Data\ Curator/P0_1_1.fastq /projectnb/bf528/users/frizzled/project_2/Data\ Curator/P0_1_2.fastq
+ 
+
+echo "Job finished: $(date +%F)"
