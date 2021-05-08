@@ -19,4 +19,4 @@ Analyst:
    - BF528_project5_analyst.R: R script that processes the differential gene expression output from Cuffdiff, generates histograms of log2 fold changes, and determines significant differentially expressed genes.
 
 Biologist:
-   - BF528_projec5_biologist.R: R script that generates line plots of FPKM values for representative genes, and a clustered heatmap of the top 1,000 significant differentially expressed genes.
+   - BF528_project5_biologist.R: R script that generates line plots of FPKM values for representative genes, and a clustered heatmap of the top 1,000 significant differentially expressed genes.
