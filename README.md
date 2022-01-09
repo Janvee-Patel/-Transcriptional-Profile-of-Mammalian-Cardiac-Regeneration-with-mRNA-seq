@@ -1,5 +1,4 @@
-# BF528 Individual Project 5 Description
-Transcriptional Profile of Mammalian Cardiac Regeneration with mRNA-Seq
+# Transcriptional Profile of Mammalian Cardiac Regeneration with mRNA-Seq Description
 
 The goals of this project were to align and normalize sequencing reads to the mm9 mouse genome (MGSCv37) using Tuxedo Suite software, assess quality control metrics, and perform differential expression analysis. 
 
